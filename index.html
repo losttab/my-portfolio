@@ -3,98 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Patel | BIT Mesra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Aditya Patel | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --card-bg: #111111;
+            --bg: #0a0a0c;
+            --card-bg: #16161a;
             --accent: #3b82f6;
-            --text: #ffffff;
-            --text-dim: #a1a1aa;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
-            color: var(--text);
+            background-image: radial-gradient(circle at 50% -20%, #1e293b, #0a0a0c);
+            color: var(--text-main);
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            padding: 20px;
         }
 
-        /* Initial Hero Section */
-        .hero {
+        /* Hero Section */
+        header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             animation: fadeIn 1s ease-out;
         }
 
         h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
             margin: 0;
             letter-spacing: -2px;
-            background: linear-gradient(to bottom, #fff 30%, #666);
+            background: linear-gradient(135deg, #fff 40%, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .tagline {
+            font-size: 1.1rem;
             color: var(--accent);
-            font-weight: 500;
-            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-top: 10px;
         }
 
-        /* Grid Options */
-        .options-grid {
+        /* Interactive Grid */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            width: 90%;
-            max-width: 1000px;
+            width: 100%;
+            max-width: 900px;
             animation: slideUp 0.8s ease-out;
         }
 
-        .option-card {
+        .card {
             background: var(--card-bg);
-            border: 1px solid #222;
-            padding: 30px;
-            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 24px;
             text-decoration: none;
             color: inherit;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
-            overflow: hidden;
         }
 
-        .option-card:hover {
-            border-color: var(--accent);
+        .card:hover {
             transform: translateY(-10px);
-            background: #161616;
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background: #1c1c21;
         }
 
-        .option-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.5rem;
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.4rem;
+            color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .option-card p {
-            color: var(--text-dim);
+        .card p {
             margin: 0;
+            line-height: 1.6;
+            color: var(--text-dim);
             font-size: 0.95rem;
         }
 
-        .icon {
-            font-size: 1.2rem;
+        /* Icon Styling */
+        .icon-circle {
+            width: 32px;
+            height: 32px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--accent);
+            font-size: 1.1rem;
         }
 
         /* Animations */
@@ -104,64 +119,55 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Detail Modal Simulation */
-        .details-content {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #333;
-            font-size: 0.85rem;
-            display: none;
-        }
-
-        .option-card:focus .details-content {
-            display: block;
-        }
-
         footer {
-            margin-top: 60px;
-            color: #333;
+            margin-top: 80px;
+            color: var(--text-dim);
             font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            .card { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
+    <header>
         <h1>ADITYA PATEL</h1>
-        <div class="tagline">CSE STUDENT @ BIT MESRA</div>
-    </section>
+        <div class="tagline">CSE Student @ BIT Mesra</div>
+    </header>
 
-    <div class="options-grid">
-        <div class="option-card" tabindex="0">
-            <h3><span class="icon">👤</span> About Me</h3>
-            <p>BIT Mesra CSE Student specializing in C++, UI/UX, and Team Management.</p>
-            <div class="details-content">
-                Currently focused on building efficient software solutions and exploring the intersection of design and engineering.
-            </div>
+    <div class="grid">
+        <div class="card">
+            <h3><span class="icon-circle">👤</span> Details</h3>
+            <p>Passionate developer skilled in <b>C++</b>, <b>UI/UX Design</b>, and <b>Team Management</b>. Dedicated to building high-performance software with intuitive user experiences.</p>
         </div>
 
-        <a href="https://github.com/losttab" target="_blank" class="option-card">
-            <h3><span class="icon">💻</span> GitHub</h3>
-            <p>Explore my code repositories, projects, and contributions as @losttab.</p>
+        <a href="https://github.com/losttab" target="_blank" class="card">
+            <h3><span class="icon-circle">💻</span> GitHub</h3>
+            <p>Explore my latest projects and code contributions. Check out my repositories under the handle <b>@losttab</b>.</p>
         </a>
 
-        <a href="https://linkedin.com/in/aditya-patel-231006" target="_blank" class="option-card">
-            <h3><span class="icon">🔗</span> LinkedIn</h3>
-            <p>Connect with me professionally and view my academic experience.</p>
+        <a href="https://www.linkedin.com/in/aditya-patel-231006/" target="_blank" class="card">
+            <h3><span class="icon-circle">🔗</span> LinkedIn</h3>
+            <p>Connect with me for professional opportunities, collaborations, and updates on my journey at BIT Mesra.</p>
         </a>
 
-        <a href="mailto:myselfaditya400@gmail.com" class="option-card">
-            <h3><span class="icon">📧</span> Contact Me</h3>
-            <p>Tap to open your mail app and send a message directly to me.</p>
+        <a href="mailto:myselfaditya400@gmail.com" class="card">
+            <h3><span class="icon-circle">📧</span> Contact Me</h3>
+            <p>Have a question or a proposal? Click here to send an email directly to <b>myselfaditya400@gmail.com</b>.</p>
         </a>
     </div>
 
     <footer>
-        &copy; 2026 Aditya Patel | Built for Excellence
+        &copy; 2026 ADITYA PATEL | BIT MESRA CSE
     </footer>
 
 </body>
